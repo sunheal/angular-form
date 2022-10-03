@@ -1,6 +1,11 @@
 <header>
   <h1>
     {{ title }}
-    <app-button color="green" text="add"></app-button>
+    <app-button
+      color="green"
+      text="Toggle"
+      (btnClick)="toggleAddSubscriber()"
+      >
+    </app-button>
   </h1>
 </header>
