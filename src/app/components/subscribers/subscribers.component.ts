@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SubscriberService } from '../../services/subscriber.service';
 import { Subscriber } from '../../Subscriber'
-import { SUBSCRIBERS } from '../../mock-subscriber';
 
 @Component({
   selector: 'app-subscribers',
@@ -8,11 +8,14 @@ import { SUBSCRIBERS } from '../../mock-subscriber';
   styleUrls: ['./subscribers.component.css']
 })
 export class SubscribersComponent implements OnInit {
-  subscribers: Subscriber[] = SUBSCRIBERS;
+  subscribers: Subscriber[] = [];
 
-  constructor() { }
+  // need to add service in the constructor in order to use it in ngOnInit
+  constructor(private subscriberService: SubscriberService) { }
 
   ngOnInit(): void {
+    //.subscribe(() => {}) is like .then() in Promise
+    this.subscriberService.getSubscribers().subscribe((subscribers) => this.subscribers = subscribers);
   }
 
 }
