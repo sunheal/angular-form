@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable, observable, of } from 'rxjs';
-import { Subscriber } from '../Subscriber'
-import { SUBSCRIBERS } from '../mock-subscriber';
+// HttpClient, HttpHeaders are for making http calls to json-server, like Fetch API in React, also need imoport HttpClientModule in app.module.ts
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Subscriber } from '../Subscriber';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubscriberService {
+  private serverURL = 'http://localhost:3000/subscribers';
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   getSubscribers(): Observable<Subscriber[]> {
-    const subscribers = of(SUBSCRIBERS);
-    return subscribers;
+    return this.http.get<Subscriber[]>(this.serverURL);
+  }
+
+  deleteSubscriber(subscriber: Subscriber): Observable<Subscriber> {
+    const id = `${this.serverURL}/${subscriber.id}`;
+    return this.http.delete<Subscriber>(id);
   }
 }
