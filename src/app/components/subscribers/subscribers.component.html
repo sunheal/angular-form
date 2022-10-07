@@ -1,7 +1,20 @@
-<app-subscriber-item
+<!-- <app-subscriber-item
   *ngFor="let subscriber of subscribers"
   [subscriber]="subscriber"
   (onDeleteSubscriber)="deleteSubscriber(subscriber)"
   >
-  <!-- when the X is clicked: 3.  onDeleteSubscriber EventEmitter in subscriber-item returned a subscriber object and then deleteSubscriber function of subscribers component is called-->
-</app-subscriber-item>
+  when the X is clicked: 3.  onDeleteSubscriber EventEmitter in subscriber-item emitted an event and then deleteSubscriber function of subscribers component is called
+</app-subscriber-item> -->
+<table id="subscribers-table">
+  <tr>
+    <th>Email</th>
+    <th>Subscription Type</th>
+    <th>Created Date</th>
+  </tr>
+  <tr *ngFor="let subscriber of subscribers"
+  >
+    <td >{{ subscriber.email }}</td>
+    <td>{{ subscriber.type }}</td>
+    <td>{{ subscriber.start }}</td>
+  </tr>
+</table>

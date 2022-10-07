@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
 import { SubscriberItemComponent } from './components/subscriber-item/subscriber-item.component';
+import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SubscriberItemComponent } from './components/subscriber-item/subscriber
     HeaderComponent,
     ButtonComponent,
     SubscribersComponent,
-    SubscriberItemComponent
+    SubscriberItemComponent,
+    AddSubscriberComponent
   ],
   imports: [
     BrowserModule,

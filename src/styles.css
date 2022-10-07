@@ -61,6 +61,14 @@ body {
   font-size: 17px;
 }
 
+.form-control select {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
 .form-control-check {
   display: flex;
   align-items: center;
@@ -74,4 +82,28 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+#subscribers-table {
+  max-width: 500px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+#subscribers-table td, #subscribers-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* #subscribers-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#subscribers-table tr:hover {background-color: #ddd;} */
+
+#subscribers-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: green;
+  color: white;
 }

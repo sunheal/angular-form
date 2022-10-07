@@ -19,7 +19,7 @@ export class SubscriberItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // when the X is clicked: 2. The onDelete function calls the onDeleteSubscriber EventEmitter that emit the subscriber that was clicked
+  // when the X is clicked: 2. The onDelete function calls the onDeleteSubscriber EventEmitter that emit an event in which the subscriber was clicked and deleted
   onDelete(subscriber: Subscriber): void {
     this.onDeleteSubscriber.emit(subscriber);
   }
