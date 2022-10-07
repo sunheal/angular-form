@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-subscriber',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-subscriber.component.css']
 })
 export class AddSubscriberComponent implements OnInit {
-  emailInput!: string;
-  password!: string;
-  confirmPassword!: string;
-  chooseSubscriptions: string = 'Advanced';
+  // emailInput!: string;
+  // passwordInput!: string;
+  // confirmPasswordInput!: string;
+  // chooseSubscriptions: string = 'Advanced';
+  ngSelect: string = 'Advanced';
+
+  subscriberForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
+    conPassword: new FormControl(null, [Validators.required]),
+    subscriptionType: new FormControl('Advanced')
+  })
 
   constructor() { }
 
@@ -17,9 +26,6 @@ export class AddSubscriberComponent implements OnInit {
   }
 
   onSubmit() {
-    // if (!this.email) {
-    //   this.emailMessage = 'Invalid email';
-    //   return;
-    // }
+    console.log(this.subscriberForm.value)
   }
 }

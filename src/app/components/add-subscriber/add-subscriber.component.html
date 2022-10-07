@@ -1,56 +1,44 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="subscriberForm"
+  (ngSubmit)="onSubmit()"
+  class="add-form"
+>
   <div class="form-control">
     <label for="email">Email</label>
-    <!-- [] is for input; () is for event-output; [()] is two-way binding;  [(ngModel)]="email" email here refer to the property email in AddSubscriberComponent -->
     <input
-      type="'email"
-      name="email"
       id="email"
-      placeholder="Email"
-      required minlength="5"
-      [(ngModel)]="emailInput"
-      #email="ngModel"
-    />
-    <span *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">Invalid Email</span>
+      type="email"
+      formControlName="email"
+    >
   </div>
   <div class="form-control">
     <label for="password">Password</label>
     <input
-      type="password"
-      name="password"
-      [(ngModel)]="password"
       id="password"
-      placeholder="Password"
-      required
-    />
-  </div>
-  <div class="form-control">
-    <label for="confirmPassword">Confirm Password</label>
-    <input
       type="password"
-      name="confirmPassword"
-      [(ngModel)]="confirmPassword"
-      id="cconfirmPassword"
-      placeholder="Confirm Password"
-      required
-    />
+      formControlName="password"
+    >
   </div>
   <div class="form-control">
-    <label for="chooseSubscriptions">Choose a subscription Type</label>
-    <select
-      name="chooseSubscriptions"
-      [(ngModel)]="chooseSubscriptions"
-      id="chooseSubscriptions"
+    <label for="conPassword">Confirm Password</label>
+    <input
+      id="conPassword"
+      type="password"
+      formControlName="conPassword"
     >
-      <option value="Advanced">Advanced</option>
+  </div>
+  <div class="form-control">
+    <label for="subscriptionType">Choose a subscription Type</label>
+    <select
+      id="subscriptionType"
+      formControlName="subscriptionType"
+      value="Advanced"
+    >
+      <option value="Advanced"[selected]>Advanced</option>
       <option value="Basic">Basic</option>
       <option value="Pro">Pro</option>
     </select>
   </div>
-  <p>{{ email }}</p>
-  <p>{{ password }}</p>
-  <p>{{ confirmPassword }}</p>
-  <p>{{ chooseSubscriptions }}</p>
-  <input type="submit" value="Subscribe" class="btn btn-subscribe" />
-  <input type="reset" value="Clear" class="btn btn-clear" />
+  <input type="submit" value="Subscribe" class="btn btn-subscribe">
+  <input type="reset" value="Clear" class="btn btn-clear">
 </form>

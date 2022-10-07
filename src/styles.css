@@ -76,7 +76,7 @@ body {
 }
 
 input.ng-invalid.ng-dirty.ng-touched {
-  border: 2px solid red;
+  border: 3px solid red;
 }
 
 /* .form-control-check {
