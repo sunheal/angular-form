@@ -11,6 +11,7 @@
       formControlName="email"
     >
     <span *ngIf="f['email'].hasError('required') && (f['email'].touched || f['email'].dirty)" class="alert">Email is required</span>
+    <br>
     <span *ngIf="f['email'].hasError('email') && (f['email'].touched || f['email'].dirty)" class="alert">Email is invalid</span>
   </div>
   <div class="form-control">
@@ -21,7 +22,8 @@
       formControlName="password"
     >
     <span *ngIf="f['password'].hasError('required') && (f['password'].touched || f['password'].dirty)" class="alert">Password is required</span>
-    <span *ngIf="f['password'].hasError('minlength') && (f['password'].touched || f['password'].dirty)" class="alert">Password has to be at least 8 characters</span>
+    <br>
+    <span *ngIf="f['password'].hasError('pattern') && (f['password'].touched || f['password'].dirty)" class="alert">Password has to be 8 characters long with at least 1 letter and 1 special character</span>
   </div>
   <div class="form-control">
     <label for="conPassword">Confirm Password</label>
@@ -30,7 +32,7 @@
       type="password"
       formControlName="conPassword"
     >
-    <span *ngIf="(f['conPassword'].hasError('required') || subscriberForm.hasError('paawordsNotMatching')) && (f['conPassword'].touched || f['conPassword'].dirty)" class="alert">Password confirmation does not match</span>
+    <span *ngIf="(f['conPassword'].hasError('required') || subscriberForm.hasError('passwordsNotMatching')) && (f['conPassword'].touched || f['conPassword'].dirty)" class="alert">Password confirmation does not match</span>
   </div>
   <div class="form-control">
     <label for="subscriptionType">Choose a subscription Type</label>

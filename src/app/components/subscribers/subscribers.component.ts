@@ -18,21 +18,20 @@ export class SubscribersComponent implements OnInit {
     this.subscriberService
       .getSubscribers()
       .subscribe(
-        (subscribers: Subscriber[]) => (this.subscribers = subscribers)
+        (subscribers) => (this.subscribers = subscribers)
       );
   }
 
-  deleteSubscriber(subscriber: Subscriber) {
+  addSubscriber(subscriber: Subscriber) {
     this.subscriberService
-      // when the X is clicked: 4. the deleteSubscriber function calls subscriberService's deleteSubscriber function that will delete the clicked subcriber from db.
-      .deleteSubscriber(subscriber)
-      .subscribe();
-
-    // when the X is clicked: 5. The getSubscribers functions will get an updated list of subscribers from DB
-    this.subscriberService
-      .getSubscribers()
+      .addSubscriber(subscriber)
       .subscribe(
-        (subscribers: Subscriber[]) => (this.subscribers = subscribers)
+        // (subscriber) => this.subscribers = subscribers
       );
+    this.subscriberService
+    .getSubscribers()
+    .subscribe(
+      (subscribers) => (this.subscribers = subscribers)
+    );
   }
 }

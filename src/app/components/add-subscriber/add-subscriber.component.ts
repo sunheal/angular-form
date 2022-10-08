@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CustomValidators } from '../../_helper/customValidators';
+import { SubscriberService } from '../../services/subscriber.service';
+import { Subscriber } from '../../Subscriber';
 
 @Component({
   selector: 'app-add-subscriber',
@@ -8,17 +10,14 @@ import { CustomValidators } from '../../_helper/customValidators';
   styleUrls: ['./add-subscriber.component.css']
 })
 export class AddSubscriberComponent implements OnInit {
-  // emailInput!: string;
-  // passwordInput!: string;
-  // confirmPasswordInput!: string;
-  // chooseSubscriptions: string = 'Advanced';
+  @Output() onAddSubscriber: EventEmitter<Subscriber> = new EventEmitter();
 
   subscriberForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{2,}$")]),
     conPassword: new FormControl(null, [Validators.required]),
     subscriptionType: new FormControl('Advanced', [Validators.required])
-  }, { validators: CustomValidators.paawordsNotMatching });
+  }, { validators: CustomValidators.passwordsNotMatching });
 
   constructor() { }
 
@@ -31,6 +30,13 @@ export class AddSubscriberComponent implements OnInit {
 
   onSubmit() {
     console.log(this.subscriberForm.value);
-    console.log(this.subscriberForm.controls)
+    const newSubscriber: Subscriber = {
+      'email': this.subscriberForm.value.email,
+      'password': this.subscriberForm.value.password,
+      'subscriptionType': this.subscriberForm.value.subscriptionType,
+      'start': new Date().toISOString()
+    }
+    this.onAddSubscriber.emit(newSubscriber)
   }
+
 }

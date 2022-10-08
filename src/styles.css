@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
@@ -95,10 +95,10 @@ input.ng-invalid.ng-dirty.ng-touched {
 } */
 
 #subscribers-table {
-  max-width: 500px;
+  max-width: 600px;
   margin: 30px auto;
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
 }
 
 #subscribers-table td, #subscribers-table th {

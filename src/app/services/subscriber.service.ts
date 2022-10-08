@@ -16,8 +16,8 @@ export class SubscriberService {
     return this.http.get<Subscriber[]>(this.serverURL);
   }
 
-  deleteSubscriber(subscriber: Subscriber): Observable<Subscriber> {
-    const id = `${this.serverURL}/${subscriber.id}`;
-    return this.http.delete<Subscriber>(id);
+  addSubscriber(subscriber: Subscriber):Observable<Subscriber> {
+    return this.http.post<Subscriber>(this.serverURL, subscriber);
   }
+
 }
