@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
-import { SubscriberItemComponent } from './components/subscriber-item/subscriber-item.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 
 
@@ -20,7 +19,6 @@ import { AddSubscriberComponent } from './components/add-subscriber/add-subscrib
     HeaderComponent,
     ButtonComponent,
     SubscribersComponent,
-    SubscriberItemComponent,
     AddSubscriberComponent
   ],
   imports: [

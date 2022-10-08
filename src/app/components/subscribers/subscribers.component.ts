@@ -25,9 +25,8 @@ export class SubscribersComponent implements OnInit {
   addSubscriber(subscriber: Subscriber) {
     this.subscriberService
       .addSubscriber(subscriber)
-      .subscribe(
-        // (subscriber) => this.subscribers = subscribers
-      );
+      .subscribe();
+
     this.subscriberService
     .getSubscribers()
     .subscribe(

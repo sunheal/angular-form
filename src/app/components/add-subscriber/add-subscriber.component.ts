@@ -19,6 +19,9 @@ export class AddSubscriberComponent implements OnInit {
     subscriptionType: new FormControl('Advanced', [Validators.required])
   }, { validators: CustomValidators.passwordsNotMatching });
 
+  initalValues = this.subscriberForm.value;
+  isSubmitted = false;
+
   constructor() { }
 
   ngOnInit(): void {}
@@ -29,14 +32,18 @@ export class AddSubscriberComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.subscriberForm.value);
-    const newSubscriber: Subscriber = {
-      'email': this.subscriberForm.value.email,
-      'password': this.subscriberForm.value.password,
-      'subscriptionType': this.subscriberForm.value.subscriptionType,
-      'start': new Date().toISOString()
+    this.isSubmitted = true;
+    console.log(this.isSubmitted);
+    if (this.subscriberForm.valid) {
+      const newSubscriber: Subscriber = {
+        'email': this.subscriberForm.value.email,
+        'password': this.subscriberForm.value.password,
+        'subscriptionType': this.subscriberForm.value.subscriptionType,
+        'start': new Date().toISOString()
+      }
+      this.onAddSubscriber.emit(newSubscriber);
+      this.subscriberForm.reset(this.initalValues);
+      this.isSubmitted = false;
     }
-    this.onAddSubscriber.emit(newSubscriber)
   }
-
 }
