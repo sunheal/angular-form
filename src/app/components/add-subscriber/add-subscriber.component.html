@@ -11,7 +11,7 @@
       type="email"
       formControlName="email"
     >
-    <span *ngIf="f['email'].hasError('required') && (f['email'].touched || f['email'].dirty)" class="alert">*Email is required</span>
+    <span *ngIf="f['email'].hasError('required') && (f['email'].touched || (isSubmitted))" class="alert">*Email is required</span>
     <br>
     <span *ngIf="f['email'].hasError('email') && (f['email'].touched || f['email'].dirty)" class="alert">*Email is invalid</span>
   </div>
@@ -22,7 +22,7 @@
       type="password"
       formControlName="password"
     >
-    <span *ngIf="f['password'].hasError('required') && (f['password'].touched || f['password'].dirty)" class="alert">*Password is required</span>
+    <span *ngIf="f['password'].hasError('required') && (f['password'].touched || f['password'].dirty) || (isSubmitted)" class="alert">*Password is required</span>
     <br>
     <span *ngIf="f['password'].hasError('pattern') && (f['password'].touched || f['password'].dirty)" class="alert">*Password has to be 8 characters long with at least 1 letter and 1 special character $!%*#?&</span>
   </div>
@@ -33,7 +33,7 @@
       type="password"
       formControlName="conPassword"
     >
-    <span *ngIf="(f['conPassword'].hasError('required') || subscriberForm.hasError('passwordsNotMatching')) && (f['conPassword'].touched || f['conPassword'].dirty)" class="alert">*Password confirmation does not match</span>
+    <span *ngIf="(f['conPassword'].hasError('required') || subscriberForm.hasError('passwordsNotMatching')) && (f['conPassword'].touched || f['conPassword'].dirty) || (isSubmitted)" class="alert">*Password confirmation missing or does not match</span>
   </div>
   <div class="form-control">
     <label for="subscriptionType">Choose a subscription Type</label>
@@ -48,5 +48,5 @@
     </select>
   </div>
   <input type="submit" value="Subscribe" class="btn btn-subscribe" >
-  <input type="reset" value="Clear" class="btn btn-clear">
+  <input type="button" value="Clear" class="btn btn-clear" (click)="onReset()">
 </form>

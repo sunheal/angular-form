@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ButtonComponent } from './components/button/button.component';
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 
@@ -17,7 +16,6 @@ import { AddSubscriberComponent } from './components/add-subscriber/add-subscrib
   declarations: [
     AppComponent,
     HeaderComponent,
-    ButtonComponent,
     SubscribersComponent,
     AddSubscriberComponent
   ],
