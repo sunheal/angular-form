@@ -1,4 +1,4 @@
-# AngularForm
+# Subscribe to Armedia
 
 This app is a subscribtion signup system for Armedia, LLC.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
