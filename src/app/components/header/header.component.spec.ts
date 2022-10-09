@@ -20,4 +20,13 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a title in header', () => {
+    expect(component.title).toBe('Subscribe to Armedia');
+  });
+
+  it('should have an img html element with an alt', () => {
+    const htmlElements = fixture.nativeElement;
+    expect(htmlElements.querySelector("img").alt).toBe('armedia');
+  });
 });
