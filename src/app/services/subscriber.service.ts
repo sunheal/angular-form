@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 // HttpClient, HttpHeaders are for making http calls to json-server, like Fetch API in React, also need imoport HttpClientModule in app.module.ts
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Subscriber } from '../Subscriber';
 
