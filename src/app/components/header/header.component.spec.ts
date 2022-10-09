@@ -26,7 +26,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should have an img html element with an alt', () => {
-    const htmlElements = fixture.nativeElement;
-    expect(htmlElements.querySelector("img").alt).toBe('armedia');
+    const img = fixture.nativeElement.querySelector("img");
+    expect(img.alt).toBe('armedia');
   });
 });
